@@ -1,0 +1,27 @@
+# Contributing
+
+Thank you for considering contributing! This document explains how to contribute in a way that keeps this repository secure, maintainable, and consistent.
+
+## Table of Contents
+- **Code of Conduct**: Please follow the rules in `CODE_OF_CONDUCT.md`.
+- **How to propose changes**: Use issues to discuss large changes and open pull requests with clear scopes.
+- **Branching**: Create feature branches from `main` named `feat/<short-description>` or `fix/<short-description>`.
+- **Commits**: Use clear, imperative commit messages. Use Conventional Commits or a similar convention for automation.
+- **Pull Request Checklist**:
+  - [ ] Follow the PR template and provide context for reviewers
+  - [ ] Tests added / updated where applicable
+  - [ ] Linter passes (see `super-linter` workflow)
+  - [ ] No secrets or credentials in the diff
+  - [ ] Update docs where necessary
+
+## Reporting issues
+- Use the **Bug Report** template for reproducible bugs.
+- Use the **Feature Request** template for new features or improvements.
+
+## Development environment
+- Add instructions here for running the project locally, running tests, and running the linter. Keep these instructions short and link to language-specific docs.
+
+## Security
+For security issues that shouldn't be public, see `SECURITY.md` for secure reporting instructions.
+
+---

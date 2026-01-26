@@ -1,0 +1,6 @@
+# CODEOWNERS
+# Lines starting with # are comments. Assign teams or users to paths.
+# Example: `* @org/owners` assigns owners for all files.
+
+# Default owners for the entire repository (solo developer):
+* @ZBH33

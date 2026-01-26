@@ -1,0 +1,48 @@
+name: ggshield
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+    types: [opened, synchronize, reopened]
+  schedule:
+    - cron: '0 2 * * *' # daily at 02:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ggshield-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install ggshield
+        run: |
+          python -m pip install --upgrade pip
+          pip install ggshield==1.44.1
+
+      - name: Run ggshield scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GGSHIELD_API_KEY: ${{ secrets.GGSHIELD_API_KEY }}
+        run: |
+          if [ -n "${GGSHIELD_API_KEY}" ]; then
+            echo "GGSHIELD_API_KEY present — running authenticated scan"
+            ggshield scan repo --all-secrets https://github.com/ZBH33/.github/
+          else
+            echo "GGSHIELD_API_KEY not set — running local-only scan"
+            ggshield scan repo --no-git
+          fi
+
+# Notes:
+# - If you want stronger remote scanning features, set `GGSHIELD_API_KEY` in repo secrets.
+# - This job runs daily and on pushes/PRs targeting `main`.
