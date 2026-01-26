@@ -1,0 +1,17 @@
+# Labeler rules map file patterns to labels
+# See: https://github.com/actions/labeler
+"type:dependency":
+  - "**/package.json"
+  - "**/requirements.txt"
+
+"area:docs":
+  - "**/docs/**"
+  - "**/*.md"
+
+"area:ci":
+  - ".github/**"
+
+"area:tests":
+  - "**/tests/**"
+
+# Add more rules to reflect your repo layout

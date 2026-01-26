@@ -1,0 +1,26 @@
+#
+name: Stale Issues and PRs
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # weekly
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run stale action
+        uses: actions/stale@v6
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: "This issue is stale due to inactivity. If it is still relevant, please reply."
+          days-before-stale: 60
+          days-before-close: 7
+          stale-pr-message: "This pull request is stale due to inactivity. If it is still needed, please update it."
+
+# Notes:
+# - Adjust timeouts and messages to fit your project's policy.

@@ -1,0 +1,19 @@
+name: Dependency Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dependency Review
+        uses: github/dependency-review-action@v2
+
+# Notes:
+# - This adds a review to PRs that changes dependencies.

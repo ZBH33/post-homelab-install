@@ -1,0 +1,25 @@
+---
+name: Labeler
+
+permissions:
+  contents: read
+  packages: write
+  issues: write
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Label PR
+        uses: actions/labeler@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: "main"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# Configure label rules in `.github/labeler.yml` at repo root.

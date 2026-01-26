@@ -1,0 +1,14 @@
+# CODEOWNERS
+# Lines starting with # are comments. Assign teams or users to paths.
+# Example: `* @org/owners` assigns owners for all files.
+
+# Default owners for the entire repository (solo developer):
+* @ZBH33
+
+# Docs ownership
+/docs/ @ZBH33
+
+# CI/workflows
+.github/workflows/ @ZBH33
+
+# NOTE: This repository is maintained by the solo developer `@ZBH33`. Replace with org/team handles if the project is later migrated to an organization.
