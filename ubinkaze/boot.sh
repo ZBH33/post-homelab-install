@@ -19,9 +19,7 @@ echo -e "\nBegin installation (or abort with ctrl+c)..."
 sudo apt-get update >/dev/null
 sudo apt-get install -y git >/dev/null
 
-echo "Cloning Ubinkaze..."
-rm -rf ~/post-homelab-install
-git clone https://github.com/ZBH33/post-homelab-install.git ~/post-homelab-install >/dev/null
+echo "Getting things ready"
 cd ~/post-homelab-install 
 chmod +x intall.sh
 
